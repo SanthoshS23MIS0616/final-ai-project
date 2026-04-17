@@ -1,0 +1,127 @@
+{
+  "status": "ok",
+  "lightgbm_summary_plot": "C:\\Users\\santhosh\\OneDrive\\Documents\\New project\\reports\\realistic_v2\\shap_summary_lightgbm.png",
+  "catboost_summary_plot": "C:\\Users\\santhosh\\OneDrive\\Documents\\New project\\reports\\realistic_v2\\shap_summary_catboost.png",
+  "top_features": [
+    {
+      "feature": "num__rainfall_mm",
+      "lightgbm_importance": 0.6328225036499096,
+      "catboost_importance": 0.5488603992939144,
+      "mean_importance": 0.590841451471912
+    },
+    {
+      "feature": "num__potassium",
+      "lightgbm_importance": 0.6156349132463823,
+      "catboost_importance": 0.5324623219933475,
+      "mean_importance": 0.5740486176198649
+    },
+    {
+      "feature": "num__humidity",
+      "lightgbm_importance": 0.45805643100406085,
+      "catboost_importance": 0.4858108668734023,
+      "mean_importance": 0.4719336489387316
+    },
+    {
+      "feature": "cat__season_Whole Year",
+      "lightgbm_importance": 0.4314255060858175,
+      "catboost_importance": 0.25484416601680016,
+      "mean_importance": 0.3431348360513088
+    },
+    {
+      "feature": "num__nitrogen",
+      "lightgbm_importance": 0.29814027965791234,
+      "catboost_importance": 0.3364816598775235,
+      "mean_importance": 0.3173109697677179
+    },
+    {
+      "feature": "num__phosphorous",
+      "lightgbm_importance": 0.30414133722103137,
+      "catboost_importance": 0.3219941554299128,
+      "mean_importance": 0.3130677463254721
+    },
+    {
+      "feature": "cat__season_Kharif",
+      "lightgbm_importance": 0.17913632665232865,
+      "catboost_importance": 0.27291796668598045,
+      "mean_importance": 0.22602714666915455
+    },
+    {
+      "feature": "num__temperature_c",
+      "lightgbm_importance": 0.21226053412965928,
+      "catboost_importance": 0.18878325406165752,
+      "mean_importance": 0.2005218940956584
+    },
+    {
+      "feature": "num__ph",
+      "lightgbm_importance": 0.18420941820555922,
+      "catboost_importance": 0.18553793040401717,
+      "mean_importance": 0.18487367430478818
+    },
+    {
+      "feature": "cat__state_name_Assam",
+      "lightgbm_importance": 0.08513303223147341,
+      "catboost_importance": 0.049094885927419556,
+      "mean_importance": 0.06711395907944648
+    },
+    {
+      "feature": "cat__season_Summer",
+      "lightgbm_importance": 0.06934915433701767,
+      "catboost_importance": 0.055571880957869316,
+      "mean_importance": 0.062460517647443495
+    },
+    {
+      "feature": "num__moisture",
+      "lightgbm_importance": 0.059877137508536266,
+      "catboost_importance": 0.027799914521827503,
+      "mean_importance": 0.043838526015181886
+    },
+    {
+      "feature": "cat__state_name_Odisha",
+      "lightgbm_importance": 0.033266235266459554,
+      "catboost_importance": 0.03458204898940405,
+      "mean_importance": 0.0339241421279318
+    },
+    {
+      "feature": "cat__season_Rabi",
+      "lightgbm_importance": 0.033050080134163655,
+      "catboost_importance": 0.03191920135134174,
+      "mean_importance": 0.0324846407427527
+    },
+    {
+      "feature": "cat__state_name_Bihar",
+      "lightgbm_importance": 0.03085900114433102,
+      "catboost_importance": 0.03178376346814769,
+      "mean_importance": 0.031321382306239355
+    },
+    {
+      "feature": "cat__state_name_Uttar Pradesh",
+      "lightgbm_importance": 0.029885690243225432,
+      "catboost_importance": 0.021742221907964484,
+      "mean_importance": 0.02581395607559496
+    },
+    {
+      "feature": "cat__state_name_West Bengal",
+      "lightgbm_importance": 0.022122309454679044,
+      "catboost_importance": 0.024026968831076273,
+      "mean_importance": 0.02307463914287766
+    },
+    {
+      "feature": "cat__state_name_Andhra Pradesh",
+      "lightgbm_importance": 0.03558599617538238,
+      "catboost_importance": 0.010525782031128425,
+      "mean_importance": 0.0230558891032554
+    },
+    {
+      "feature": "cat__state_name_Karnataka",
+      "lightgbm_importance": 0.028043851235152916,
+      "catboost_importance": 0.009638059023459534,
+      "mean_importance": 0.018840955129306225
+    },
+    {
+      "feature": "cat__state_name_Tamil Nadu",
+      "lightgbm_importance": 0.026066859345439262,
+      "catboost_importance": 0.006773839260178695,
+      "mean_importance": 0.01642034930280898
+    }
+  ]
+}

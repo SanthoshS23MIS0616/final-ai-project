@@ -1,0 +1,267 @@
+{
+  "data_mode": "realistic_v2_leakage_safe_pipeline",
+  "dataset_summary": {
+    "classification_rows": 46523,
+    "regression_rows": 46523,
+    "crop_count": 13,
+    "state_count": 33
+  },
+  "classification_metrics": {
+    "lightgbm": {
+      "train_accuracy": 0.989789886614004,
+      "train_f1_weighted": 0.989798186995819,
+      "train_top3_accuracy": 1.0,
+      "accuracy": 0.9371305749596991,
+      "f1_weighted": 0.9368471759931764,
+      "top3_accuracy": 0.999247716281569
+    },
+    "catboost": {
+      "train_accuracy": 0.9398140684614972,
+      "train_f1_weighted": 0.9392550150253013,
+      "train_top3_accuracy": 0.9995701004890107,
+      "accuracy": 0.9329392799570123,
+      "f1_weighted": 0.9321814605888182,
+      "top3_accuracy": 0.998602901665771
+    },
+    "random_forest": {
+      "train_accuracy": 0.9405663926057284,
+      "train_f1_weighted": 0.9386721428401252,
+      "train_top3_accuracy": 0.9993282820140792,
+      "accuracy": 0.9176786673831273,
+      "f1_weighted": 0.9147751576552647,
+      "top3_accuracy": 0.9976356797420741
+    },
+    "logistic_regression": {
+      "train_accuracy": 0.9182384867537213,
+      "train_f1_weighted": 0.9177492658422582,
+      "train_top3_accuracy": 0.9986028265892848,
+      "accuracy": 0.9205803331542182,
+      "f1_weighted": 0.9201154012529369,
+      "top3_accuracy": 0.9987103707684041
+    },
+    "stacking": {
+      "train_accuracy": 0.9436025579020904,
+      "train_f1_weighted": 0.9430897483040201,
+      "train_top3_accuracy": 0.9986028265892848,
+      "accuracy": 0.9339065018807093,
+      "f1_weighted": 0.9332974909987004,
+      "top3_accuracy": 0.9970983342289091
+    },
+    "tabnet": {
+      "train_accuracy": 1.0,
+      "train_f1_weighted": 1.0,
+      "train_top3_accuracy": 1.0,
+      "accuracy": 0.9335840945728103,
+      "f1_weighted": 0.9325015080490056,
+      "top3_accuracy": 0.9993551853842021
+    }
+  },
+  "classification_cv_metrics": {
+    "lightgbm": {
+      "accuracy_mean": 0.9315117262681241,
+      "accuracy_std": 0.002423571197639154,
+      "f1_weighted_mean": 0.9310505014881396,
+      "f1_weighted_std": 0.002522880625598302,
+      "top3_accuracy_mean": 0.998710302183393,
+      "top3_accuracy_std": 0.0006668446864088796,
+      "folds": 5,
+      "model": "lightgbm"
+    },
+    "catboost": {
+      "accuracy_mean": 0.928609861961475,
+      "accuracy_std": 0.0019882543925328284,
+      "f1_weighted_mean": 0.9277296925980026,
+      "f1_weighted_std": 0.0020653989395553497,
+      "top3_accuracy_mean": 0.998898383942213,
+      "top3_accuracy_std": 0.00019744515141606047,
+      "folds": 5,
+      "model": "catboost"
+    },
+    "random_forest": {
+      "accuracy_mean": 0.9113601252376741,
+      "accuracy_std": 0.0025155843416152894,
+      "f1_weighted_mean": 0.9080088145775937,
+      "f1_weighted_std": 0.0028392817397338596,
+      "top3_accuracy_mean": 0.9973400097592862,
+      "top3_accuracy_std": 0.0006149752854601906,
+      "folds": 5,
+      "model": "random_forest"
+    },
+    "logistic_regression": {
+      "accuracy_mean": 0.9156859407152609,
+      "accuracy_std": 0.0020915579370469548,
+      "f1_weighted_mean": 0.9151080116887995,
+      "f1_weighted_std": 0.0021583870433510635,
+      "top3_accuracy_mean": 0.9984685039219435,
+      "top3_accuracy_std": 0.00040384513229036297,
+      "folds": 5,
+      "model": "logistic_regression"
+    },
+    "stacking": {
+      "accuracy_mean": 0.9280455553194787,
+      "accuracy_std": 0.0012250327640863413,
+      "f1_weighted_mean": 0.9274214874353074,
+      "f1_weighted_std": 0.001246862424222638,
+      "top3_accuracy_mean": 0.9965070808970313,
+      "top3_accuracy_std": 0.00033973589601387304,
+      "folds": 5,
+      "model": "stacking"
+    },
+    "tabnet": {
+      "status": "evaluated_on_holdout_only"
+    }
+  },
+  "regression_metrics": {
+    "train_rmse": 0.9112818487566345,
+    "train_r2": 0.9836929761393358,
+    "rmse": 2.064489548221661,
+    "r2": 0.9180932693302534
+  },
+  "regression_cv_metrics": {
+    "rmse_mean": 2.13852201536342,
+    "rmse_std": 0.020773638666144897,
+    "r2_mean": 0.9101531600717483,
+    "r2_std": 0.001740324499105609,
+    "folds": 5
+  },
+  "model_comparison": {
+    "best_classification_model": "lightgbm",
+    "best_regression_model": "lightgbm_regressor"
+  },
+  "shap_summary": {
+    "status": "ok",
+    "lightgbm_summary_plot": "C:\\Users\\santhosh\\OneDrive\\Documents\\New project\\reports\\realistic_v2\\shap_summary_lightgbm.png",
+    "catboost_summary_plot": "C:\\Users\\santhosh\\OneDrive\\Documents\\New project\\reports\\realistic_v2\\shap_summary_catboost.png",
+    "top_features": [
+      {
+        "feature": "num__rainfall_mm",
+        "lightgbm_importance": 0.6328225036499096,
+        "catboost_importance": 0.5488603992939144,
+        "mean_importance": 0.590841451471912
+      },
+      {
+        "feature": "num__potassium",
+        "lightgbm_importance": 0.6156349132463823,
+        "catboost_importance": 0.5324623219933475,
+        "mean_importance": 0.5740486176198649
+      },
+      {
+        "feature": "num__humidity",
+        "lightgbm_importance": 0.45805643100406085,
+        "catboost_importance": 0.4858108668734023,
+        "mean_importance": 0.4719336489387316
+      },
+      {
+        "feature": "cat__season_Whole Year",
+        "lightgbm_importance": 0.4314255060858175,
+        "catboost_importance": 0.25484416601680016,
+        "mean_importance": 0.3431348360513088
+      },
+      {
+        "feature": "num__nitrogen",
+        "lightgbm_importance": 0.29814027965791234,
+        "catboost_importance": 0.3364816598775235,
+        "mean_importance": 0.3173109697677179
+      },
+      {
+        "feature": "num__phosphorous",
+        "lightgbm_importance": 0.30414133722103137,
+        "catboost_importance": 0.3219941554299128,
+        "mean_importance": 0.3130677463254721
+      },
+      {
+        "feature": "cat__season_Kharif",
+        "lightgbm_importance": 0.17913632665232865,
+        "catboost_importance": 0.27291796668598045,
+        "mean_importance": 0.22602714666915455
+      },
+      {
+        "feature": "num__temperature_c",
+        "lightgbm_importance": 0.21226053412965928,
+        "catboost_importance": 0.18878325406165752,
+        "mean_importance": 0.2005218940956584
+      },
+      {
+        "feature": "num__ph",
+        "lightgbm_importance": 0.18420941820555922,
+        "catboost_importance": 0.18553793040401717,
+        "mean_importance": 0.18487367430478818
+      },
+      {
+        "feature": "cat__state_name_Assam",
+        "lightgbm_importance": 0.08513303223147341,
+        "catboost_importance": 0.049094885927419556,
+        "mean_importance": 0.06711395907944648
+      },
+      {
+        "feature": "cat__season_Summer",
+        "lightgbm_importance": 0.06934915433701767,
+        "catboost_importance": 0.055571880957869316,
+        "mean_importance": 0.062460517647443495
+      },
+      {
+        "feature": "num__moisture",
+        "lightgbm_importance": 0.059877137508536266,
+        "catboost_importance": 0.027799914521827503,
+        "mean_importance": 0.043838526015181886
+      },
+      {
+        "feature": "cat__state_name_Odisha",
+        "lightgbm_importance": 0.033266235266459554,
+        "catboost_importance": 0.03458204898940405,
+        "mean_importance": 0.0339241421279318
+      },
+      {
+        "feature": "cat__season_Rabi",
+        "lightgbm_importance": 0.033050080134163655,
+        "catboost_importance": 0.03191920135134174,
+        "mean_importance": 0.0324846407427527
+      },
+      {
+        "feature": "cat__state_name_Bihar",
+        "lightgbm_importance": 0.03085900114433102,
+        "catboost_importance": 0.03178376346814769,
+        "mean_importance": 0.031321382306239355
+      },
+      {
+        "feature": "cat__state_name_Uttar Pradesh",
+        "lightgbm_importance": 0.029885690243225432,
+        "catboost_importance": 0.021742221907964484,
+        "mean_importance": 0.02581395607559496
+      },
+      {
+        "feature": "cat__state_name_West Bengal",
+        "lightgbm_importance": 0.022122309454679044,
+        "catboost_importance": 0.024026968831076273,
+        "mean_importance": 0.02307463914287766
+      },
+      {
+        "feature": "cat__state_name_Andhra Pradesh",
+        "lightgbm_importance": 0.03558599617538238,
+        "catboost_importance": 0.010525782031128425,
+        "mean_importance": 0.0230558891032554
+      },
+      {
+        "feature": "cat__state_name_Karnataka",
+        "lightgbm_importance": 0.028043851235152916,
+        "catboost_importance": 0.009638059023459534,
+        "mean_importance": 0.018840955129306225
+      },
+      {
+        "feature": "cat__state_name_Tamil Nadu",
+        "lightgbm_importance": 0.026066859345439262,
+        "catboost_importance": 0.006773839260178695,
+        "mean_importance": 0.01642034930280898
+      }
+    ]
+  },
+  "warnings": [],
+  "artifacts": {
+    "lgbm_model": "lgbm_model.joblib",
+    "catboost_model": "catboost_model.joblib",
+    "random_forest_model": "random_forest_model.joblib",
+    "logistic_regression_model": "logistic_regression_model.joblib",
+    "yield_model": "yield_model.joblib",
+    "stacking_model": "stacking_model.joblib"
+  }
+}

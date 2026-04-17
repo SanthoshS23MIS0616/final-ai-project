@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Crop Intelligence Platform</title>
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.css"
+    />
+    <link rel="stylesheet" href="/static/styles.css" />
+  </head>
+  <body>
+    <main class="page-shell">
+      <section class="hero-card">
+        <div class="hero-copy">
+          <p class="eyebrow">Integrated ML System</p>
+          <h1>Crop recommendation, yield prediction, and top-3 ranking in one flow.</h1>
+          <p class="hero-text">
+            Enter soil values, mark your land on the map, and let the system auto-fill
+            area and live weather before predicting conservative crop options for a new farmer.
+          </p>
+        </div>
+        <div class="hero-badge">
+          <span>Models</span>
+          <strong>TabNet + LightGBM + CatBoost + Stacking</strong>
+        </div>
+      </section>
+
+      <section class="workspace">
+        <section class="panel form-panel">
+          <form id="prediction-form" novalidate>
+            <div class="panel-header">
+              <h2>Input Profile</h2>
+              <button type="submit" class="primary-btn">Predict Best Crop</button>
+            </div>
+            <div class="form-grid" id="form-grid"></div>
+          </form>
+
+          <section class="map-card">
+            <div class="panel-header map-header">
+              <div>
+                <h2>Land Map</h2>
+                <p class="map-subtitle">Draw your land boundary to auto-fill area, temperature, humidity, and rainfall.</p>
+              </div>
+              <div class="map-actions">
+                <button id="locate-btn" type="button" class="ghost-btn">Use My Location</button>
+                <button id="clear-map-btn" type="button" class="ghost-btn">Clear Shape</button>
+              </div>
+            </div>
+            <div class="draw-tools">
+              <button id="draw-polygon-btn" type="button" class="ghost-btn">Polygon</button>
+              <button id="draw-rectangle-btn" type="button" class="ghost-btn">Rectangle</button>
+              <button id="draw-circle-btn" type="button" class="ghost-btn">Circle</button>
+            </div>
+            <div id="map"></div>
+            <div class="map-meta">
+              <div class="map-meta-item">
+                <span>Area</span>
+                <strong id="area-display">Draw on map</strong>
+              </div>
+              <div class="map-meta-item">
+                <span>Coordinates</span>
+                <strong id="coords-display">Waiting for location</strong>
+              </div>
+            </div>
+            <div class="map-meta rainfall-meta">
+              <div class="map-meta-item">
+                <span>Recent 30-Day Rain</span>
+                <strong id="recent-rainfall-display">Waiting for map</strong>
+              </div>
+              <div class="map-meta-item">
+                <span>Climate Rainfall Input</span>
+                <strong id="climate-rainfall-display">Waiting for map</strong>
+              </div>
+            </div>
+            <div id="location-banner" class="location-banner">Mark or draw your land on the map.</div>
+            <p class="source-line">Weather and rainfall source: Open-Meteo forecast + archive APIs</p>
+          </section>
+        </section>
+
+        <section class="panel result-panel">
+          <div class="panel-header">
+            <h2>Recommendation Output</h2>
+          </div>
+          <div id="status" class="status-pill">Loading metadata...</div>
+          <div id="best-crop" class="best-crop-card hidden"></div>
+          <div id="ideal-ground-card" class="best-crop-card hidden"></div>
+          <div id="training-metrics" class="metrics-grid"></div>
+          <section id="xai-panel" class="xai-panel hidden">
+            <div class="xai-grid">
+              <article class="xai-card">
+                <h3>Why This Crop?</h3>
+                <div id="local-explanation"></div>
+              </article>
+              <article class="xai-card">
+                <h3>Model Comparison</h3>
+                <div id="model-overview" class="graph-list"></div>
+              </article>
+            </div>
+            <div class="xai-grid">
+              <article class="xai-card">
+                <h3>Global Feature Importance</h3>
+                <div id="global-features" class="feature-chips"></div>
+              </article>
+              <article class="xai-card">
+                <h3>Rejected Crops</h3>
+                <div id="rejected-crops" class="rejection-list"></div>
+              </article>
+            </div>
+            <div class="xai-card">
+              <h3>SHAP Summary Graphs</h3>
+              <div class="plot-grid">
+                <figure class="plot-card">
+                  <figcaption>LightGBM Summary</figcaption>
+                  <img id="plot-lightgbm" alt="LightGBM SHAP summary plot" />
+                </figure>
+                <figure class="plot-card">
+                  <figcaption>CatBoost Summary</figcaption>
+                  <img id="plot-catboost" alt="CatBoost SHAP summary plot" />
+                </figure>
+              </div>
+            </div>
+          </section>
+          <div class="table-wrap">
+            <table id="results-table" class="results-table hidden">
+              <thead>
+                <tr>
+                  <th>Crop</th>
+                  <th>Sowing Month</th>
+                  <th>Harvest Month</th>
+                  <th>Duration</th>
+                  <th>Yield Start</th>
+                  <th>Yield (t/ha)</th>
+                  <th>Price (₹/kg)</th>
+                  <th>Cost (₹/ha)</th>
+                  <th>Revenue (₹/ha)</th>
+                  <th>Profit (₹/ha)</th>
+                  <th>Risk</th>
+                  <th>Sustainability</th>
+                  <th>Final Score</th>
+                </tr>
+              </thead>
+              <tbody></tbody>
+            </table>
+          </div>
+        </section>
+      </section>
+    </main>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/esri-leaflet@3.0.12/dist/esri-leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-draw@1.0.4/dist/leaflet.draw.js"></script>
+    <script src="/static/app.js"></script>
+  </body>
+</html>

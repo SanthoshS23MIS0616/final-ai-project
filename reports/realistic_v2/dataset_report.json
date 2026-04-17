@@ -1,0 +1,44 @@
+{
+  "output_dir": "C:\\Users\\santhosh\\OneDrive\\Documents\\New project\\data\\realistic_v2",
+  "row_counts": {
+    "project_master_clean": 46523,
+    "crop_production_clean": 46523,
+    "market_prices_realistic": 46523,
+    "crop_recommendation_realistic": 12100,
+    "crop_profiles_ranges": 39
+  },
+  "validation": {
+    "classification_accuracy": 0.8777001612036539,
+    "classification_f1_weighted": 0.8555165314045757,
+    "regression_rmse": 2.0065693586590947,
+    "regression_r2": 0.9226246607220432,
+    "max_numeric_target_correlation": 0.38770665714725244,
+    "warnings": []
+  },
+  "ranges": {
+    "temperature_c": [
+      10.0,
+      40.0
+    ],
+    "rainfall_mm": [
+      20.0,
+      300.0
+    ],
+    "ph": [
+      4.5,
+      8.5
+    ],
+    "price_per_ton": [
+      16000.97,
+      130204.06
+    ]
+  },
+  "leakage_removed_from_master": [
+    "production",
+    "yield",
+    "profit",
+    "revenue",
+    "ideal_*",
+    "recommendation flags"
+  ]
+}
