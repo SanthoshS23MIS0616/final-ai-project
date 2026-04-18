@@ -436,6 +436,24 @@ h2 {
   display: none;
 }
 
+.project-footer {
+  margin-top: 24px;
+  padding: 22px 24px;
+  border-radius: 28px;
+  background: linear-gradient(135deg, rgba(14, 75, 56, 0.96), rgba(0, 104, 115, 0.94) 52%, rgba(255, 145, 77, 0.95));
+  color: #ffffff;
+  box-shadow: 0 26px 60px rgba(14, 75, 56, 0.25);
+  text-align: center;
+}
+
+.footer-signature {
+  margin: 0;
+  font-size: clamp(1rem, 1.6vw, 1.2rem);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+  line-height: 1.5;
+}
+
 @media (max-width: 1120px) {
   .hero-card,
   .workspace {
