@@ -161,18 +161,33 @@ function renderGlobalFeatures(features) {
 }
 
 function renderPlotImages(assets) {
-  const lightgbmPlot =
-    assets?.lightgbm_summary_plot ||
-    assets?.summary_plot_urls?.lightgbm ||
-    "/reports/realistic_v2/shap_summary_lightgbm.png";
-  const catboostPlot =
-    assets?.catboost_summary_plot ||
-    assets?.summary_plot_urls?.catboost ||
-    "/reports/realistic_v2/shap_summary_catboost.png";
-  plotLightgbmEl.src = lightgbmPlot || "";
-  plotCatboostEl.src = catboostPlot || "";
-  plotLightgbmEl.style.display = lightgbmPlot ? "block" : "none";
-  plotCatboostEl.style.display = catboostPlot ? "block" : "none";
+  const lightgbmFallback = "/reports/realistic_v2/shap_summary_lightgbm.png";
+  const catboostFallback = "/reports/realistic_v2/shap_summary_catboost.png";
+  const lightgbmPlot = assets?.lightgbm_summary_plot || assets?.summary_plot_urls?.lightgbm || lightgbmFallback;
+  const catboostPlot = assets?.catboost_summary_plot || assets?.summary_plot_urls?.catboost || catboostFallback;
+
+  plotLightgbmEl.onerror = () => {
+    if (plotLightgbmEl.getAttribute("src") === lightgbmFallback) {
+      plotLightgbmEl.style.display = "none";
+      return;
+    }
+    plotLightgbmEl.onerror = null;
+    plotLightgbmEl.src = lightgbmFallback;
+  };
+
+  plotCatboostEl.onerror = () => {
+    if (plotCatboostEl.getAttribute("src") === catboostFallback) {
+      plotCatboostEl.style.display = "none";
+      return;
+    }
+    plotCatboostEl.onerror = null;
+    plotCatboostEl.src = catboostFallback;
+  };
+
+  plotLightgbmEl.src = lightgbmPlot;
+  plotCatboostEl.src = catboostPlot;
+  plotLightgbmEl.style.display = "block";
+  plotCatboostEl.style.display = "block";
 }
 
 function renderRejectedCrops(rejected) {
