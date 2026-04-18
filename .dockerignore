@@ -1,0 +1,6 @@
+﻿.git
+__pycache__/
+*.pyc
+catboost_info/
+tmp_run_*.txt
+.venv/
