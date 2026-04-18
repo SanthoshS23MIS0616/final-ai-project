@@ -161,8 +161,14 @@ function renderGlobalFeatures(features) {
 }
 
 function renderPlotImages(assets) {
-  const lightgbmPlot = assets?.lightgbm_summary_plot || assets?.summary_plot_urls?.lightgbm || "";
-  const catboostPlot = assets?.catboost_summary_plot || assets?.summary_plot_urls?.catboost || "";
+  const lightgbmPlot =
+    assets?.lightgbm_summary_plot ||
+    assets?.summary_plot_urls?.lightgbm ||
+    "/reports/realistic_v2/shap_summary_lightgbm.png";
+  const catboostPlot =
+    assets?.catboost_summary_plot ||
+    assets?.summary_plot_urls?.catboost ||
+    "/reports/realistic_v2/shap_summary_catboost.png";
   plotLightgbmEl.src = lightgbmPlot || "";
   plotCatboostEl.src = catboostPlot || "";
   plotLightgbmEl.style.display = lightgbmPlot ? "block" : "none";
