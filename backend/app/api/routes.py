@@ -3,15 +3,18 @@ from __future__ import annotations
 from fastapi import APIRouter, HTTPException
 
 from backend.app.schemas import PredictionInput, TrainRequest
-from backend.app.services.predictor import get_engine, train_models
+from backend.app.services.predictor import get_engine, model_artifact_status, train_models
 
 
 router = APIRouter(prefix="/api", tags=["crop-intelligence"])
 
 
 @router.get("/health")
-def health() -> dict[str, str]:
-    return {"status": "ok"}
+def health() -> dict[str, object]:
+    status = model_artifact_status()
+    if not status["ready"]:
+        raise HTTPException(status_code=503, detail={"status": "models-not-ready", **status})
+    return {"status": "ok", **status}
 
 
 @router.get("/metadata")

@@ -2,7 +2,8 @@
 
 ENV PYTHONDONTWRITEBYTECODE=1 \
     PYTHONUNBUFFERED=1 \
-    PIP_NO_CACHE_DIR=1
+    PIP_NO_CACHE_DIR=1 \
+    PORT=10000
 
 WORKDIR /app
 
@@ -21,4 +22,6 @@ COPY reports ./reports
 COPY scripts ./scripts
 COPY runtime.txt ./runtime.txt
 
-CMD ["sh", "-c", "python -m uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-8000}"]
+EXPOSE 10000
+
+CMD ["sh", "-c", "python -m uvicorn backend.app.main:app --host 0.0.0.0 --port ${PORT:-10000}"]
