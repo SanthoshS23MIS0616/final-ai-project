@@ -17,7 +17,7 @@ The system takes soil nutrients, pH, temperature, humidity, rainfall, moisture, 
 
 ## Demo and Links
   
-- Render Demo: `[(https://santhosh-23mis0616.onrender.com/)]`
+- Render Demo: https://santhosh-23mis0616.onrender.com/
 - GitHub Repository: [final-ai-project](https://github.com/SanthoshS23MIS0616/final-ai-project)
 - Screenshots PDF / Drive Link: `[https://drive.google.com/file/d/1YdznPG5hFJdTpdQkcMZzZ3FbCu6NdMK4/view?usp=drivesdk]`
 
