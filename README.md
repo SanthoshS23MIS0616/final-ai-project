@@ -16,10 +16,10 @@ This project is designed to help users choose the best crop for a given field co
 The system takes soil nutrients, pH, temperature, humidity, rainfall, moisture, area, and regional context as inputs, then returns ranked crop recommendations, cost-profit estimates, risk signals, and explainable insights.
 
 ## Demo and Links
-
-- Render Demo: `[Add your Render deployment link here]`
+  
+- Render Demo: `[(https://santhosh-23mis0616.onrender.com/)]`
 - GitHub Repository: [final-ai-project](https://github.com/SanthoshS23MIS0616/final-ai-project)
-- Screenshots PDF / Drive Link: `[Add your Drive PDF link here]`
+- Screenshots PDF / Drive Link: `[https://drive.google.com/file/d/1YdznPG5hFJdTpdQkcMZzZ3FbCu6NdMK4/view?usp=drivesdk]`
 
 ## Architecture
 
